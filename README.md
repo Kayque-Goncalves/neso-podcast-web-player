@@ -1,2 +1,2 @@
-# neso-podcast-web-player
-Neso Podcas Player
+# Neso Podcasts
+Neso Podcast Player
