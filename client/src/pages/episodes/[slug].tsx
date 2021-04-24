@@ -1,10 +1,12 @@
-import { format, parseISO } from "date-fns"
-import enCA from "date-fns/locale/en-CA"
+import Head from 'next/head'
 import Link from 'next/link'
+import enCA from "date-fns/locale/en-CA"
 import { useRouter } from 'next/router'
+import { format, parseISO } from "date-fns"
 import { GetStaticPaths, GetStaticProps } from "next"
 
 import { api } from "../../services/api"
+import { usePlayer } from "../../contexts/PlayerContext"
 import { convertDurationToTimeString } from "../../utils/convertDurationToTimeString"
 
 import styles from "./episode.module.scss"
@@ -26,11 +28,15 @@ type EpisodeProps = {
 };
 
 export default function Episode({ episode }: EpisodeProps) {
+  const { play } = usePlayer()
 
   const router = useRouter()
 
   return (
     <div className={ styles.episode }>
+      <Head>
+        <title> Neso | { episode.title } </title>
+      </Head>
       <div className={ styles.thumbnailContainer }>
         <Link href="/">
           <button type="button">
@@ -38,7 +44,7 @@ export default function Episode({ episode }: EpisodeProps) {
           </button>
         </Link>
         <img className={ styles.thumbnailImage } src={ episode.thumbnail } alt="Episode Thumbnail"/>
-        <button type="button">
+        <button type="button" onClick={() => play(episode)}>
           <img src="/play.svg" alt="Play Epsode"/>
         </button>
       </div>
