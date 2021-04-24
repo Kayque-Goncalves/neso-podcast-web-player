@@ -68,7 +68,6 @@ export function Player () {
 
       <footer className={ !episode ? styles.empty : '' }>
         <div className={ styles.progress }>
-          { console.log(progress) }
           <span>{ convertDurationToTimeString(progress) }</span>
           <div className={ styles.slider }>
             { episode ? (
