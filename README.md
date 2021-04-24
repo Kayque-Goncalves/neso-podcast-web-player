@@ -7,7 +7,7 @@ This project was made during the nlw5
 ## Layout
 
 Home page
-![Home Page](/.github/home.PNG)
+![Home Page](/.github/home.png)
 
 Single Episode
 ![Single Episode](/.github/episode.png)
